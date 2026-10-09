@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thankyou - MahaAcharya</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      background: radial-gradient(circle at top, #1d1855 0%, #09071f 58%, #050411 100%);
+      overflow-x: hidden;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 430px;
+      padding: 28px 22px 24px;
+      border: 1px solid rgba(255, 209, 102, 0.18);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(28, 23, 80, 0.98), rgba(13, 11, 43, 0.98));
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.48);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tick {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      color: #071b11;
+      background: #22c55e;
+      font-size: 46px;
+      font-weight: 900;
+      box-shadow: 0 0 0 9px rgba(34, 197, 94, 0.13);
+      animation: tickPop 0.55s ease-out both;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-size: 27px;
+      line-height: 1.18;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin-bottom: 20px;
+      color: #cfcaf4;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .details {
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      border: 1px solid #2a2760;
+      border-radius: 12px;
+      background: rgba(8, 7, 31, 0.56);
+      text-align: left;
+    }
+
+    .details p {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 7px 0;
+      border-bottom: 1px solid #2a2760;
+      color: #c9c4ee;
+      font-size: 13px;
+    }
+
+    .details p:last-child {
+      border-bottom: none;
+    }
+
+    .details span {
+      color: #ffffff;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .oto {
+      margin: 18px 0;
+      padding: 18px 15px;
+      border: 1px solid rgba(255, 209, 102, 0.42);
+      border-radius: 15px;
+      background: linear-gradient(180deg, rgba(255, 209, 102, 0.13), rgba(255, 209, 102, 0.04));
+      text-align: center;
+      animation: offerReveal 0.7s ease-out 0.22s both;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 12px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      color: #18123c;
+      background: #ffd166;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .oto h2 {
+      margin-bottom: 8px;
+      color: #ffd166;
+      font-size: 23px;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+
+    .oto-copy {
+      margin-bottom: 15px;
+      color: #f5f0d8;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .value-box {
+      margin: 16px 0 14px;
+      padding: 14px;
+      border: 1px dashed rgba(255, 209, 102, 0.55);
+      border-radius: 12px;
+      background: rgba(8, 7, 31, 0.46);
+    }
+
+    .value-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 7px 0;
+      color: #d8d2f6;
+      font-size: 13px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .value-row:last-child {
+      border-bottom: 0;
+    }
+
+    .value-row span:last-child {
+      color: #ffffff;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .strike {
+      color: #ff9b79 !important;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .today-row {
+      margin-top: 3px;
+      color: #ffd166;
+      font-weight: 900;
+    }
+
+    .today-row span:first-child,
+    .today-row span:last-child {
+      color: #ffd166;
+    }
+
+    .price-label {
+      margin-top: 4px;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin-bottom: 6px;
+      color: #ffd166;
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 950;
+      animation: pricePulse 1.8s ease-in-out infinite;
+    }
+
+    .price small {
+      display: block;
+      margin-top: 5px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .saving {
+      display: inline-block;
+      padding: 7px 10px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      color: #071b11;
+      background: #22c55e;
+      font-size: 12px;
+      font-weight: 900;
+      animation: saveBounce 1.3s ease-in-out infinite;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 8px;
+      margin: 15px 0;
+      text-align: left;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      color: #e8e4ff;
+      font-size: 13px;
+      line-height: 1.38;
+      opacity: 0;
+      animation: benefitIn 0.45s ease-out both;
+    }
+
+    .benefit:nth-child(1) {
+      animation-delay: 0.45s;
+    }
+
+    .benefit:nth-child(2) {
+      animation-delay: 0.55s;
+    }
+
+    .benefit:nth-child(3) {
+      animation-delay: 0.65s;
+    }
+
+    .benefit:nth-child(4) {
+      animation-delay: 0.75s;
+    }
+
+    .benefit strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .check {
+      flex: 0 0 21px;
+      width: 21px;
+      height: 21px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #071b11;
+      background: #22c55e;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .vip-button,
+    .whatsapp-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 52px;
+      border-radius: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .vip-button {
+      margin-top: 14px;
+      background: #25d366;
+      box-shadow: 0 14px 26px rgba(37, 211, 102, 0.24);
+      animation: ctaGlow 1.8s ease-in-out infinite;
+    }
+
+    .urgency {
+      margin-top: 11px;
+      color: #ffd166;
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .whatsapp-button {
+      margin-top: 16px;
+      background: #25d366;
+    }
+
+    .skip {
+      display: inline-block;
+      margin-top: 14px;
+      color: #9690c6;
+      font-size: 12px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .note {
+      margin-top: 16px;
+      color: #8c86bb;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .note strong {
+      color: #ffd166;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes tickPop {
+      0% {
+        transform: scale(0.4);
+        opacity: 0;
+      }
+
+      70% {
+        transform: scale(1.12);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes offerReveal {
+      0% {
+        transform: translateY(22px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes pricePulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.04);
+      }
+    }
+
+    @keyframes ctaGlow {
+      0%,
+      100% {
+        box-shadow: 0 14px 26px rgba(37, 211, 102, 0.24);
+      }
+
+      50% {
+        box-shadow: 0 18px 38px rgba(37, 211, 102, 0.45);
+      }
+    }
+
+    @keyframes saveBounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes benefitIn {
+      0% {
+        transform: translateX(-12px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      body {
+        align-items: flex-start;
+        padding: 14px;
+      }
+
+      .box {
+        padding: 24px 16px 21px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .oto h2 {
+        font-size: 21px;
+      }
+
+      .price {
+        font-size: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <main class="box">
+    <div class="tick">✓</div>
+    <h1>Payment Successful!</h1>
+    <p class="sub">Aapki seat book ho gayi hai.<br>Milte hain webinar mein!</p>
+
+    <div class="details">
+      <p>Date <span>10th October</span></p>
+      <p>Time <span>8:30 PM IST</span></p>
+      <p>Platform <span>Zoom (Live)</span></p>
+      <p>Amount Paid <span>₹9</span></p>
+    </div>
+
+    <section class="oto">
+      <div class="badge">Special One-Time Offer</div>
+      <h2>VIP Community Access Unlock Karein</h2>
+      <p class="oto-copy">
+        Aapne ₹9 mein apni seat confirm kar li hai. Ab akela learn karne ke bajay VIP Community join karke guidance, doubt support, updates aur serious learners ka environment paaiye.
+      </p>
+
+      <div class="value-box">
+        <div class="value-row"><span>VIP Community Access Value</span><span class="strike">₹19,999</span></div>
+        <div class="value-row"><span>VIP Member Offer Price</span><span>₹471</span></div>
+        <div class="value-row today-row"><span>Today You Save</span><span>₹19,528</span></div>
+      </div>
+
+      <div class="price-label">Only Today</div>
+      <div class="price">₹471<small>Instant VIP access after payment</small></div>
+      <div class="saving">You save 97% on this page</div>
+
+      <div class="benefits">
+        <div class="benefit"><span class="check">✓</span><span><strong>Private VIP Community</strong> access</span></div>
+        <div class="benefit"><span class="check">✓</span><span><strong>Doubt support</strong> and learning guidance</span></div>
+        <div class="benefit"><span class="check">✓</span><span><strong>Priority updates</strong> and important resources</span></div>
+        <div class="benefit"><span class="check">✓</span><span><strong>Accountability</strong> with serious learners</span></div>
+      </div>
+
+      <a class="vip-button" href="#payment-link">Yes, Unlock VIP Access for ₹471</a>
+      <p class="urgency">Ye ₹471 VIP offer abhi ke liye reserved hai. Agar aap skip karte hain, baad mein same price available nahi hoga.</p>
+    </section>
+
+    <a class="whatsapp-button" href="https://chat.whatsapp.com/GZutfWUfLB0FIA5AAyMkGW?s=cl&p=a&mlu=4&ilr=4">
+      WhatsApp Group Join Karo
+    </a>
+
+    <a class="skip" href="#continue">No thanks, continue without VIP access</a>
+
+    <p class="note"><strong>Note:</strong> VIP access optional hai. Webinar access already confirm ho chuka hai.</p>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("c");
+    const ctx = canvas.getContext("2d");
+    const colors = ["#ffd166", "#ff6b35", "#22c55e", "#60a5fa", "#f472b6", "#a78bfa"];
+    const pieces = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function reset(piece) {
+      piece.x = Math.random() * canvas.width;
+      piece.y = Math.random() * canvas.height - canvas.height;
+      piece.r = Math.random() * 6 + 4;
+      piece.color = colors[Math.floor(Math.random() * colors.length)];
+      piece.speed = Math.random() * 3 + 2;
+      piece.tilt = Math.random() * 10 - 5;
+      piece.tiltSpeed = Math.random() * 0.1 + 0.05;
+    }
+
+    resize();
+    for (let i = 0; i < 120; i++) {
+      const piece = {};
+      reset(piece);
+      pieces.push(piece);
+    }
+
+    let frame = 0;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach((piece) => {
+        piece.y += piece.speed;
+        piece.tilt += piece.tiltSpeed;
+        if (piece.y > canvas.height) {
+          reset(piece);
+          piece.y = -10;
+        }
+        ctx.beginPath();
+        ctx.rect(piece.x + piece.tilt, piece.y, piece.r, piece.r * 2);
+        ctx.fillStyle = piece.color;
+        ctx.fill();
+      });
+      frame++;
+      if (frame < 300) requestAnimationFrame(draw);
+      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    window.addEventListener("resize", resize);
+    draw();
+  </script>
+</body>
+</html>
