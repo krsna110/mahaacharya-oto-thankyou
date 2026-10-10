@@ -98,7 +98,7 @@
 
     .timer-bar {
       margin-bottom: 22px;
-      padding: 12px 13px;
+      padding: 14px 13px;
       border: 1px solid rgba(255, 209, 102, 0.32);
       border-radius: 12px;
       color: #ffd166;
@@ -109,12 +109,31 @@
       text-align: center;
     }
 
-    #timer {
-      display: inline-block;
-      min-width: 54px;
+    .timer-label {
+      display: block;
       color: #ffffff;
-      font-size: 18px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    #timer {
+      display: block;
+      min-width: 86px;
+      margin: 3px auto;
+      color: #ffffff;
+      font-size: 30px;
+      line-height: 1.05;
       font-variant-numeric: tabular-nums;
+    }
+
+    .timer-sub {
+      display: block;
+      color: #ffd166;
+      font-size: 12px;
+    }
+
+    .timer-warning #timer {
+      animation: timerPulse 1.2s ease-in-out infinite;
     }
 
     .oto {
@@ -219,6 +238,15 @@
       text-decoration: line-through;
       text-decoration-thickness: 2px;
       white-space: nowrap;
+    }
+
+    .trust-line {
+      margin-top: 10px;
+      color: #c9f7d9;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+      text-align: center;
     }
 
     .value-row {
@@ -402,6 +430,9 @@
       margin-top: 16px;
       margin-bottom: 18px;
       background: #25d366;
+      min-height: 46px;
+      font-size: 14px;
+      opacity: 0.94;
     }
 
     .skip {
@@ -504,6 +535,19 @@
       }
     }
 
+    @keyframes timerPulse {
+      0%,
+      100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 rgba(255, 209, 102, 0);
+      }
+
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 16px rgba(255, 209, 102, 0.5);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -554,10 +598,14 @@
     </div>
 
     <a class="whatsapp-button" href="https://chat.whatsapp.com/GZutfWUfLB0FIA5AAyMkGW?s=cl&p=a&mlu=4&ilr=4">
-      WhatsApp Group Join Karo
+      Join Free WhatsApp Group First
     </a>
 
-    <div class="timer-bar">Sirf ₹9 buyers ke liye reserved VIP offer: <span id="timer">15:00</span></div>
+    <div class="timer-bar">
+      <span class="timer-label">Offer Reserved For You</span>
+      <span id="timer">15:00</span>
+      <span class="timer-sub">Only for ₹9 buyers on this page</span>
+    </div>
 
     <section class="oto">
       <div class="badge">Special One-Time Offer · Sirf ₹9 Buyers Ke Liye</div>
@@ -588,6 +636,11 @@
           <span><strong>Important Resources & Updates</strong><small>Webinar ke baad bhi learning track par rehne ke liye</small></span>
           <span class="kit-value">₹4,999</span>
         </div>
+        <div class="kit-item">
+          <span class="kit-icon">✓</span>
+          <span><strong>30-Day Support Environment</strong><small>Consistency aur next steps ke liye support system</small></span>
+          <span class="kit-value">₹999</span>
+        </div>
       </div>
 
       <div class="price-label">Only Today</div>
@@ -601,12 +654,13 @@
         <div class="benefit"><span class="check">✓</span><span><strong>Accountability</strong> with serious learners</span></div>
       </div>
 
-      <a class="vip-button" href="#payment-link">Yes, Unlock VIP Access for ₹471</a>
+      <a class="vip-button" href="#payment-link">Yes, Lock My VIP Access for ₹471</a>
+      <div class="trust-line">Secure payment · Instant VIP access · One-time payment</div>
       <p class="urgency">Ye ₹471 VIP offer abhi ke liye reserved hai. Agar aap skip karte hain, baad mein same price available nahi hoga.</p>
 
       <div class="lock-box">
         <strong>Dhyan dein:</strong>
-        Ye upgrade optional hai, lekin agar aap serious ho aur webinar ke baad bhi guidance chahte ho, to ₹471 mein VIP access lock karna sabse smart next step hai.
+        Agar aap VIP support skip karte hain, webinar ke baad aapko sirf normal updates milenge. VIP guidance, priority doubt support aur focused learning environment sirf ₹471 upgrade members ke liye reserved hai.
       </div>
     </section>
 
@@ -652,6 +706,7 @@
       const minutes = Math.floor(reservedSeconds / 60);
       const seconds = reservedSeconds % 60;
       timer.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+      timer.parentElement.classList.toggle("timer-warning", reservedSeconds <= 600);
       if (reservedSeconds > 0) reservedSeconds--;
     }
 
