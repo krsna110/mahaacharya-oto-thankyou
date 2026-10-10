@@ -96,6 +96,27 @@
       text-align: right;
     }
 
+    .timer-bar {
+      margin-bottom: 18px;
+      padding: 12px 13px;
+      border: 1px solid rgba(255, 209, 102, 0.32);
+      border-radius: 12px;
+      color: #ffd166;
+      background: rgba(255, 209, 102, 0.1);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.42;
+      text-align: center;
+    }
+
+    #timer {
+      display: inline-block;
+      min-width: 54px;
+      color: #ffffff;
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
     .oto {
       margin: 18px 0;
       padding: 18px 15px;
@@ -140,6 +161,64 @@
       border: 1px dashed rgba(255, 209, 102, 0.55);
       border-radius: 12px;
       background: rgba(8, 7, 31, 0.46);
+    }
+
+    .kit-list {
+      display: grid;
+      gap: 9px;
+      margin: 14px 0 13px;
+      text-align: left;
+    }
+
+    .kit-item {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: start;
+      padding-bottom: 9px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
+      color: #e8e4ff;
+      font-size: 13px;
+      line-height: 1.34;
+    }
+
+    .kit-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .kit-icon {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      color: #071b11;
+      background: #22c55e;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .kit-item strong {
+      display: block;
+      color: #ffffff;
+      font-size: 13px;
+    }
+
+    .kit-item small {
+      display: block;
+      margin-top: 2px;
+      color: #c9c4ee;
+      font-size: 12px;
+    }
+
+    .kit-value {
+      color: #ff9b79;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      white-space: nowrap;
     }
 
     .value-row {
@@ -301,6 +380,24 @@
       font-weight: 700;
     }
 
+    .lock-box {
+      margin-top: 16px;
+      padding: 14px;
+      border: 1px solid rgba(255, 107, 53, 0.45);
+      border-radius: 12px;
+      background: rgba(255, 107, 53, 0.08);
+      color: #f5f0d8;
+      font-size: 13px;
+      line-height: 1.48;
+      text-align: left;
+    }
+
+    .lock-box strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #ffd166;
+    }
+
     .whatsapp-button {
       margin-top: 16px;
       background: #25d366;
@@ -455,17 +552,37 @@
       <p>Amount Paid <span>₹9</span></p>
     </div>
 
+    <div class="timer-bar">Sirf ₹9 buyers ke liye reserved VIP offer: <span id="timer">15:00</span></div>
+
     <section class="oto">
-      <div class="badge">Special One-Time Offer</div>
-      <h2>VIP Community Access Unlock Karein</h2>
+      <div class="badge">Special One-Time Offer · Sirf ₹9 Buyers Ke Liye</div>
+      <h2>Webinar Se Pehle VIP Community Access Unlock Karein</h2>
       <p class="oto-copy">
-        Aapne ₹9 mein apni seat confirm kar li hai. Ab akela learn karne ke bajay VIP Community join karke guidance, doubt support, updates aur serious learners ka environment paaiye.
+        Aapne ₹9 mein apni seat confirm kar li hai. Ab webinar ke baad confused rehne ke bajay VIP Community join karke direct guidance, doubt support, priority updates aur serious learners ka environment paaiye.
       </p>
 
       <div class="value-box">
         <div class="value-row"><span>VIP Community Access Value</span><span class="strike">₹19,999</span></div>
         <div class="value-row"><span>VIP Member Offer Price</span><span>₹471</span></div>
         <div class="value-row today-row"><span>Today You Save</span><span>₹19,528</span></div>
+      </div>
+
+      <div class="kit-list">
+        <div class="kit-item">
+          <span class="kit-icon">✓</span>
+          <span><strong>VIP Community Access</strong><small>Private focused group with serious learners</small></span>
+          <span class="kit-value">₹9,999</span>
+        </div>
+        <div class="kit-item">
+          <span class="kit-icon">✓</span>
+          <span><strong>Priority Doubt Support</strong><small>Questions poochne aur direction lene ka support</small></span>
+          <span class="kit-value">₹4,999</span>
+        </div>
+        <div class="kit-item">
+          <span class="kit-icon">✓</span>
+          <span><strong>Important Resources & Updates</strong><small>Webinar ke baad bhi learning track par rehne ke liye</small></span>
+          <span class="kit-value">₹4,999</span>
+        </div>
       </div>
 
       <div class="price-label">Only Today</div>
@@ -481,6 +598,11 @@
 
       <a class="vip-button" href="#payment-link">Yes, Unlock VIP Access for ₹471</a>
       <p class="urgency">Ye ₹471 VIP offer abhi ke liye reserved hai. Agar aap skip karte hain, baad mein same price available nahi hoga.</p>
+
+      <div class="lock-box">
+        <strong>Dhyan dein:</strong>
+        Ye upgrade optional hai, lekin agar aap serious ho aur webinar ke baad bhi guidance chahte ho, to ₹471 mein VIP access lock karna sabse smart next step hai.
+      </div>
     </section>
 
     <a class="whatsapp-button" href="https://chat.whatsapp.com/GZutfWUfLB0FIA5AAyMkGW?s=cl&p=a&mlu=4&ilr=4">
@@ -521,6 +643,17 @@
     }
 
     let frame = 0;
+    let reservedSeconds = 900;
+    const timer = document.getElementById("timer");
+
+    function updateTimer() {
+      if (!timer) return;
+      const minutes = Math.floor(reservedSeconds / 60);
+      const seconds = reservedSeconds % 60;
+      timer.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+      if (reservedSeconds > 0) reservedSeconds--;
+    }
+
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       pieces.forEach((piece) => {
@@ -541,6 +674,8 @@
     }
 
     window.addEventListener("resize", resize);
+    updateTimer();
+    setInterval(updateTimer, 1000);
     draw();
   </script>
 </body>
