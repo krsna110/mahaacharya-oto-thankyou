@@ -184,40 +184,36 @@
 
     .kit-list {
       display: grid;
-      gap: 8px;
-      margin: 12px 0 16px;
+      gap: 0;
+      margin: 14px 0 12px;
       text-align: left;
     }
 
     .kit-item {
       display: grid;
-      grid-template-columns: 24px minmax(0, 1fr);
+      grid-template-columns: 28px minmax(0, 1fr) auto;
       gap: 10px;
       align-items: start;
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.04);
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
       color: #e8e4ff;
       font-size: 13px;
       line-height: 1.34;
     }
 
     .kit-item:last-child {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
       padding-bottom: 10px;
     }
 
     .kit-icon {
-      display: grid;
-      place-items: center;
+      display: block;
       width: 24px;
       height: 24px;
-      border-radius: 50%;
-      color: #071b11;
-      background: #22c55e;
-      font-size: 13px;
-      font-weight: 900;
+      color: #ffd166;
+      font-size: 20px;
+      line-height: 1;
+      text-align: center;
     }
 
     .kit-item strong {
@@ -231,6 +227,31 @@
       margin-top: 2px;
       color: #c9c4ee;
       font-size: 12px;
+    }
+
+    .kit-value {
+      color: #d8d2f6;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      white-space: nowrap;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 10px 0 4px;
+      color: #c9c4ee;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .total-row span:last-child {
+      color: #ffffff;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
     }
 
     .trust-line {
@@ -287,6 +308,16 @@
       font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
+    }
+
+    .old-price {
+      margin-top: 12px;
+      color: #ff6b35;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
     }
 
     .price {
@@ -602,53 +633,52 @@
 
     <section class="oto">
       <div class="badge">Special Offer · Sirf ₹9 Buyers Ke Liye</div>
-      <h2>VIP Community Access Unlock Karein</h2>
+      <h2>Webinar se pehle hi Numerology Mastery Kit apna banayein</h2>
       <p class="oto-copy">
-        Webinar ke baad confused rehne ke bajay VIP group mein direct guidance, doubt support aur serious learners ka environment paaiye.
+        Jo sirf is page par hi ₹471 mein milega — poora ₹30,000+ ka kit.
       </p>
-
-      <div class="value-box">
-        <div class="value-row"><span>VIP Community Access Value</span><span class="strike">₹19,999</span></div>
-        <div class="value-row"><span>VIP Member Offer Price</span><span>₹471</span></div>
-        <div class="value-row today-row"><span>Today You Save</span><span>₹19,528</span></div>
-      </div>
 
       <div class="kit-list">
         <div class="kit-item">
-          <span class="kit-icon">✓</span>
-          <span><strong>VIP Community Access</strong><small>Private focused group with serious learners</small></span>
+          <span class="kit-icon">ॐ</span>
+          <span><strong>Vedic Numerology Course</strong><small>Mool Ank, Bhagyank, Dasha — step by step</small></span>
+          <span class="kit-value">₹14,999</span>
         </div>
         <div class="kit-item">
-          <span class="kit-icon">✓</span>
-          <span><strong>Priority Doubt Support</strong><small>Questions poochne aur direction lene ka support</small></span>
+          <span class="kit-icon">▣</span>
+          <span><strong>Mobile Numerology</strong><small>Apne mobile number ki energy jaanein &amp; sahi number chunein</small></span>
+          <span class="kit-value">₹4,999</span>
         </div>
         <div class="kit-item">
-          <span class="kit-icon">✓</span>
-          <span><strong>Important Resources & Updates</strong><small>Webinar ke baad bhi learning track par rehne ke liye</small></span>
+          <span class="kit-icon">✍</span>
+          <span><strong>Name Numerology</strong><small>Naam ke ank se success &amp; luck badlein</small></span>
+          <span class="kit-value">₹4,999</span>
         </div>
         <div class="kit-item">
-          <span class="kit-icon">✓</span>
-          <span><strong>30-Day Support Environment</strong><small>Consistency aur next steps ke liye support system</small></span>
+          <span class="kit-icon">☯</span>
+          <span><strong>1 Month Official App Access</strong><small>Calculators, reports &amp; daily guidance</small></span>
+          <span class="kit-value">₹5,999</span>
         </div>
       </div>
 
-      <div class="price-label">Only Today</div>
-      <div class="price">₹471<small>Instant VIP access after payment</small></div>
-      <div class="saving">You save 97% on this page</div>
+      <div class="total-row"><span>Total Value</span><span>₹30,996</span></div>
 
-      <a class="vip-button" href="#payment-link">Yes, Lock My VIP Access for ₹471</a>
-      <div class="trust-line">Secure payment · Instant VIP access · One-time payment</div>
-      <p class="urgency">Ye ₹471 VIP offer abhi ke liye reserved hai. Agar aap skip karte hain, baad mein same price available nahi hoga.</p>
+      <div class="old-price">₹30,996</div>
+      <div class="price">₹471<small>One-time payment · Instant access · 98% OFF</small></div>
+
+      <a class="vip-button" href="#payment-link">Haan, Mujhe Kit Chahiye – ₹471</a>
+      <div class="trust-line">Secure payment · Turant access</div>
+      <p class="urgency">Ye ₹471 kit offer abhi ke liye reserved hai. Agar aap skip karte hain, baad mein same price available nahi hoga.</p>
 
       <div class="lock-box">
         <strong>Dhyan dein:</strong>
-        Agar aap VIP support skip karte hain, webinar ke baad aapko sirf normal updates milenge. VIP guidance, priority doubt support aur focused learning environment sirf ₹471 upgrade members ke liye reserved hai.
+        Agar aap ye kit skip karte hain, webinar ke baad aapko sirf normal updates milenge. Numerology mastery resources aur app access sirf ₹471 upgrade buyers ke liye reserved hai.
       </div>
     </section>
 
     <a class="skip" href="#continue">No thanks, continue without VIP access</a>
 
-    <p class="note"><strong>Note:</strong> VIP access optional hai. Webinar access already confirm ho chuka hai.</p>
+    <p class="note"><strong>Note:</strong> Numerology Mastery Kit optional hai. Webinar access already confirm ho chuka hai.</p>
   </main>
 
   <script>
